@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "nome": "Cartão Black",
+        "status": "ativo",
+        "descrição": "Cartão destinado para usuários do MV a partir do nível 3",
+        "taxaJuros": 0.5,
+        "dataCriacao": "2026-02-10"
+    }
+]
