@@ -1,5 +1,5 @@
 export interface Produto {
-    id: string;
+    id: number;
     nome: string;
     tipo: string;
     status: 'ativo' | 'inativo';

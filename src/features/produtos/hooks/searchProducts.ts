@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Produto } from '../../../types/Produto';
+import type { Produto } from '../../../types/Produto';
 import productsData from '../../../data/produtos.json'
 
 
@@ -27,7 +27,7 @@ export function searchProducts() {
     fetchProducts();
   }, []);
 
-  const toggleStatus = (id: string) => {
+  const toggleStatus = (id: number) => {
     setProducts(prev =>
       prev.map(product =>
         product.id === id
@@ -39,6 +39,7 @@ export function searchProducts() {
       )
     );
   };
+
 
   return {
     products,

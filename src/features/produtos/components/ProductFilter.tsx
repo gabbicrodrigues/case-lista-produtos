@@ -19,6 +19,16 @@ export default function ProductFilter({
 
   return (
     <Box mb={2}>
+      <TextField
+        fullWidth
+        size="small"
+        label="Buscar produto"
+        placeholder="Digite o nome do produto"
+        value={search}
+        onChange={e => onSearchChange(e.target.value)}
+        sx={{ mb: 2 }}
+      />
+
       <Tabs
         value={status}
         onChange={handleTabChange}
@@ -30,17 +40,6 @@ export default function ProductFilter({
         <Tab label="Ativos" value="ativo" />
         <Tab label="Inativos" value="inativo" />
       </Tabs>
-
-      <Box mt={2}>
-        <TextField
-          fullWidth
-          size="small"
-          label="Buscar produto"
-          placeholder="Digite o nome do produto"
-          value={search}
-          onChange={e => onSearchChange(e.target.value)}
-        />
-      </Box>
     </Box>
   );
 }

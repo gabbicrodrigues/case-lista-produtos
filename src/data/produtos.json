@@ -2,8 +2,27 @@
     {
         "id": 1,
         "nome": "Cartão Black",
+        "tipo": "Cartão",
         "status": "ativo",
-        "descrição": "Cartão destinado para usuários do MV a partir do nível 3",
+        "descricao": "Cartão destinado para usuários do MV a partir do nível 3",
+        "taxaJuros": 0.5,
+        "dataCriacao": "2026-02-10"
+    },
+    {
+        "id": 2,
+        "nome": "Ativo XPTO",
+        "tipo": "fundo de investimento",
+        "status": "ativo",
+        "descricao": "Cartão destinado para usuários do MV a partir do nível 3",
+        "taxaJuros": 0.5,
+        "dataCriacao": "2026-02-10"
+    },
+    {
+        "id": 3,
+        "nome": "Cartão Platinum",
+        "tipo": "Cartão",
+        "status": "inativo",
+        "descricao": "Cartão destinado para usuários do MV a partir do nível 3",
         "taxaJuros": 0.5,
         "dataCriacao": "2026-02-10"
     }
