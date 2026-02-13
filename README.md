@@ -1,73 +1,143 @@
-# React + TypeScript + Vite
+# Produtos Financeiros - Frontend Case
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objetivo
 
-Currently, two official plugins are available:
+Implementar uma funcionalidade de listagem de produtos financeiros (ex: cartões), consumindo uma API mockada, permitindo:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Visualização de produtos
+- Filtro por nome
+- Filtro por status (ativo/inativo)
+- Visualização de detalhes
+- Alteração de status com atualização imediata na interface
+- Tratamento de loading e erro
 
-## React Compiler
+## 🛠 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + TypeScript
+- Vite
+- Material UI (MUI)
+- Jest + React Testing Library
+- Mock local via JSON
 
-## Expanding the ESLint configuration
+# 📌 Produtos Financeiros - Frontend Case
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🎯 Objetivo
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Implementar uma funcionalidade de listagem de produtos financeiros (ex: cartões, contas, crédito), consumindo uma API mockada, permitindo:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Visualização de produtos
+- Filtro por nome
+- Filtro por status (ativo/inativo)
+- Visualização de detalhes
+- Alteração de status com atualização imediata na interface
+- Tratamento de loading e erro
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠 Tecnologias Utilizadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React + TypeScript
+- Vite
+- Material UI (MUI)
+- Jest + React Testing Library
+- Mock local via JSON
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Estrutura do Projeto
+
+O projeto foi organizado seguindo uma abordagem orientada a feature:
+src/
+├─ features/produtos
+│ ├─ pages
+│ ├─ components
+│ └─ hooks
+├─ interfaces
+├─ shared
+│ ├─ components
+│ └─ theme
+└─ data
+
+---
+
+## 🧩 Componentes Principais
+
+### ProductsPage
+Responsável por compor a tela principal, aplicar filtros e conectar os componentes da feature.
+
+### searchProducts
+Hook customizado responsável por:
+- Buscar os produtos (mock JSON)
+- Controlar estados de loading e erro
+- Atualizar status do produto
+- Manter a fonte única de verdade
+
+### ProductFilter
+Componente responsável pelos filtros:
+- Campo de busca por nome
+- Tabs para visualização por status (Todos, Ativos, Inativos)
+
+### ProductList
+Renderiza a lista de produtos filtrados.
+
+### ProductItem
+Representa um card individual do produto.
+
+### ProductDrawer
+Exibe detalhes do produto selecionado e permite alterar o status via Switch.
+
+
+## Fluxo da Aplicação
+
+1. Ao montar a página, o hook `searchProducts` é executado.
+2. O mock JSON é carregado simulando uma chamada de API.
+3. Durante o carregamento, é exibido um Skeleton (shimmer).
+4. Após carregamento:
+   - Produtos são exibidos em forma de cards.
+   - Filtros por texto e status são aplicados na camada da página.
+5. Ao clicar em um produto:
+   - Um Drawer lateral é aberto.
+6. Ao alterar o Switch de status:
+   - O estado é atualizado no hook.
+   - A lista é automaticamente re-renderizada.
+   - O Drawer permanece sincronizado via id selecionado.
+
+---
+  
+## Decisões Técnicas
+
+### 🔹 Organização por Feature
+A estrutura foi organizada por domínio (`produtos`), agrupando página, componentes e hook relacionados, facilitando manutenção futura.
+
+### 🔹 Controle de Estado
+Foi utilizado `useState` e `useEffect` no hook customizado `searchProducts`, mantendo a lógica de dados desacoplada da UI.
+
+### 🔹 Fonte Única de Verdade
+O estado dos produtos fica centralizado no hook. O Drawer mantém apenas o id do produto selecionado, garantindo sincronização automática da UI.
+
+### 🔹 Filtro por Status via Tabs
+Foi adotada visualização por Tabs (Todos / Ativos / Inativos) para reduzir carga cognitiva e melhorar escaneabilidade da lista.
+
+### 🔹 Responsividade
+Utilização de breakpoints do MUI para:
+- Centralizar layout no desktop
+- Ajustar padding no mobile
+- Expandir Drawer para 100% da largura em telas menores
+
+---
+
+## Testes Implementados
+
+- Filtro por nome de produto
+- Alteração de status via Switch
+
+---
+
+## Como Executar
+
+```bash
+npm install
+npm run dev
+
+Para rodar os testes:
+npm test
