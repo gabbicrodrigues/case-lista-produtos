@@ -11,27 +11,6 @@ Implementar uma funcionalidade de listagem de produtos financeiros (ex: cartões
 - Alteração de status com atualização imediata na interface
 - Tratamento de loading e erro
 
-## 🛠 Tecnologias Utilizadas
-
-- React + TypeScript
-- Vite
-- Material UI (MUI)
-- Jest + React Testing Library
-- Mock local via JSON
-
-# 📌 Produtos Financeiros - Frontend Case
-
-## 🎯 Objetivo
-
-Implementar uma funcionalidade de listagem de produtos financeiros (ex: cartões, contas, crédito), consumindo uma API mockada, permitindo:
-
-- Visualização de produtos
-- Filtro por nome
-- Filtro por status (ativo/inativo)
-- Visualização de detalhes
-- Alteração de status com atualização imediata na interface
-- Tratamento de loading e erro
-
 ---
 
 ## 🛠 Tecnologias Utilizadas
@@ -47,16 +26,20 @@ Implementar uma funcionalidade de listagem de produtos financeiros (ex: cartões
 ## Estrutura do Projeto
 
 O projeto foi organizado seguindo uma abordagem orientada a feature:
+
+```
 src/
-├─ features/produtos
-│ ├─ pages
-│ ├─ components
-│ └─ hooks
-├─ interfaces
-├─ shared
-│ ├─ components
-│ └─ theme
-└─ data
+ ├─ features/
+ │   └─ produtos/
+ │       ├─ pages/
+ │       ├─ components/
+ │       └─ hooks/
+ ├─ interfaces/
+ ├─ shared/
+ │   ├─ components/
+ │   └─ theme/
+ └─ data/
+```
 
 ---
 
