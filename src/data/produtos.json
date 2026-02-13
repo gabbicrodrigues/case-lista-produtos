@@ -13,8 +13,8 @@
         "nome": "Ativo XPTO",
         "tipo": "fundo de investimento",
         "status": "ativo",
-        "descricao": "Cartão destinado para usuários do MV a partir do nível 3",
-        "taxaJuros": 0.5,
+        "descricao": "Fundo que investe em ações de empresas americanas.",
+        "taxaJuros": 1.0,
         "dataCriacao": "2026-02-10"
     },
     {
@@ -22,8 +22,35 @@
         "nome": "Cartão Platinum",
         "tipo": "Cartão",
         "status": "inativo",
-        "descricao": "Cartão destinado para usuários do MV a partir do nível 3",
-        "taxaJuros": 0.5,
+        "descricao": "Cartão destinado para usuários do MV a partir do nível 2",
+        "taxaJuros": 0.2,
         "dataCriacao": "2026-02-10"
+    },
+    {
+        "id": 4,
+        "nome": "Empréstimo Pessoal",
+        "tipo": "Crédito",
+        "status": "inativo",
+        "descricao": "Empréstimo com parcelas fixas.",
+        "taxaJuros": 3.2,
+        "dataCriacao": "2025-05-10"
+    },
+    {
+        "id": 5,
+        "nome": "Consignado",
+        "tipo": "Crédito",
+        "status": "ativo",
+        "descricao": "Consignado para aposentados e pensionistas.",
+        "taxaJuros": 2.5,
+        "dataCriacao": "2023-07-15"
+    },
+    {
+        "id": 6,
+        "nome": "Fundo de Ações",
+        "tipo": "fundo de investimento",
+        "status": "ativo",
+        "descricao": "Fundo que investe em ações de empresas brasileiras.",
+        "taxaJuros": 1.8,
+        "dataCriacao": "2024-01-20"
     }
 ]

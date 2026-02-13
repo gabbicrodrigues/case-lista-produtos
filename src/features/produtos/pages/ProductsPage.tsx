@@ -32,10 +32,6 @@ export default function ProductsPage() {
         return matchesStatus && matchesSearch;
     });
 
-    if (loading) {
-        return <Loading />;
-    }
-
     if (error) {
         return <Error onRetry={retry} />;
     }
@@ -58,10 +54,16 @@ export default function ProductsPage() {
             onSearchChange={setSearch}
         />
 
-        <ProductList
-            products={filteredProducts}
-            onSelect={(product) => setSelectedProductId(product.id)}
-        />
+        { error ? (
+            <Error onRetry={retry} />
+            ) : loading ? (
+            <Loading />
+            ) : (
+            <ProductList
+              products={filteredProducts}
+              onSelect={(product) => setSelectedProductId(product.id)}
+            />
+        )}
 
         <ProductDrawer
             product={selectedProduct}
